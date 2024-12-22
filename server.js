@@ -25,6 +25,10 @@ process.on('SIGINT', () => {
 
 require('./app/service/mainRoutes')(app);
 
+app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to the backend!' });
+});
+
 app.listen(process.env.APP_PORT, process.env.APP_HOST, () => {
     console.log(`Server running on http://${process.env.APP_HOST}:${process.env.APP_PORT}`);
 });
